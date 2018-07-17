@@ -17,17 +17,10 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
 var keyGlobalVars = [
-	"parties",
-	"partyRowData",
-	"people",
-	"peopleChips",
-	"archivedPeople",
-	"donePeople",
-	"graveyardPeople",
-	"tables"
+	"comboReadings"
 	];
 
-var savedDataFlag = "seatsDataSaved";
+var savedDataFlag = "comboDataSaved";
 
 var lastKnownState = {};
 var resetState = {};

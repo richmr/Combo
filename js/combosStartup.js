@@ -18,14 +18,11 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 $(document).ready(function(){
 	 // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
 	$( window ).unload(function() {
-		  return exitPriorities();
+		  return exitCombo();
 		});	
 	
 	$('.modal').modal();
 	$('select').material_select();
-	
-	// Warning modal
-	$("#MVPWarningModal").modal("open");
 	
 	// Establish the reset state for future use
 	saveResetState();    
@@ -34,25 +31,26 @@ $(document).ready(function(){
 	if (wasDataSaved()) {
 		loadAllData();
 	} else {
-		$("#MVPAboutModal").modal("open");
+		$("#comboAboutModal").modal("open");
 	}
 	
 	newData();
-	initializeSaveData();
-	initializeLoadData();
-	initializeEditProject();
-	initializeEditTableRow();
-	initializeResetTable();
+	//initializeSaveData();
+	//initializeLoadData();
+	//initializeEditProject();
+//initializeEditTableRow();
+	//nitializeResetTable();
 });
 
 function newData() {
-	//console.log("newData() running.");	
-	clearHTML();
-	initializePortfolio();
-	initializePriorityTable();
-	initializeArchive();
+	//console.log("newData() running.");
+	initializeComboReadings();	
+	//clearHTML();
+	//initializePortfolio();
+	//initializePriorityTable();
+	//initializeArchive();
 	//initializedonePeople();
-	initializegraveyard();
+	//initializegraveyard();
 }
 
 function clearHTML() {
@@ -64,13 +62,13 @@ function clearHTML() {
 	clearGraveyard();
 }
 
-function exitPriorities() {
+function exitCombo() {
 	// An attempt to save the data when the user leaves the page, or the window closes
-	saveArchive();
-	saveGraveyard();
+	//saveArchive();
+	//saveGraveyard();
 	//saveDone();
 	saveAllData();
-	return "Seats data saved.";
+	console.log("Combo data saved.");
 } 
 	 
-console.log("prioritiesStartup loaded");
+console.log("comboStartup loaded");

@@ -16,14 +16,6 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-// Global variable declarations
-
-var comboReadings = {};
-
-function consolidateData() {
-	// Returns a consolidated JSON object with all data
-		
-	return makeAllDataJSON();
+function doStats() {
+	console.log("I've got " + _.size(comboReadings) + " stats to work with");
 }
-
-console.log("Global vars loaded.");
