@@ -24,15 +24,38 @@ function comboListInit() {
 	});
 }
 
-function clickOnGuestList () {
-	// Generate the data in the guest list
-	// Clear the guest list
-	htmlsnippet = "Things go here"	
+function clickOnComboList () {
+	// Generate level 1 combos
+	lvl1Combos = generateComboArray(1);
+	lvl2Combos = generateComboArray(2);
 	
-	$("#comboList-content").html();
+	// Remove level 1 combos from level 2 list
+	uniqLevel2Combos = _.differenceWith(lvl2Combos, lvl1Combos,  _.isEqual);
+	// Generate the display	
+	htmlsnippet = "Level 1 Combos ("+lvl1Combos.length+" found)<br><hr>"
+	lvl1Combos.forEach(function (combo, index) {
+		htmlsnippet += "- "+combo.join('')+"<br>";
+	});
+	
+	htmlsnippet += '<br>Level 2 Combos ('+uniqLevel2Combos.length+' found)<br><hr>';
+	uniqLevel2Combos.forEach(function (combo, index) {
+		htmlsnippet += "- "+combo.join('')+"<br>";
+	});
+		
+	$("#comboList-content").html(htmlsnippet);
 	
 	// Open the modal
 	$("#comboListModal").modal('open');
+}
+
+function generateComboArray(level=1) {
+	theseRareReadings = [];
+	for (index in dialHistograms) {
+		theseRareReadings.push(rareReadings(dialHistograms[index], level));	
+	}
+	
+	theseComboArrays = possibleCombinations(theseRareReadings, 5000);
+	return theseComboArrays;
 }
 
 function rareReadings(readingsHistogram, level = 1) {

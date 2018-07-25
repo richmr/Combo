@@ -45,6 +45,7 @@ $(document).ready(function(){
 function newData() {
 	//console.log("newData() running.");
 	initializeComboReadings();	
+	comboListInit();
 	//clearHTML();
 	//initializePortfolio();
 	//initializePriorityTable();
