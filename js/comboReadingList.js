@@ -58,10 +58,13 @@ function deleteAllReadings() {
 function addReadingEntryLine(val="") {
 	console.log("addReadingEntry with val: " + val);
 	var rowID = 'dialreading-'+nextDialReadingRow;
-	var htmlsnippet = '<div class="row">'+ 
-	  									'<div class="input-field col s12">' +
+	var htmlsnippet = '<div id="'+rowID+'-row"class="row valign-wrapper">'+ 
+	  									'<div class="input-field col s10">' +
 							  			'<input placeholder="Dial reading" id="dialreading-'+nextDialReadingRow+'" type="text" >' +
 								  		'</div>' +
+								  		'<div class="col s2">'+
+								  		'<a title="delete" href="#!"><i id="'+rowID+'-delete" class="small material-icons action-icons red-text">delete</i></a>'+
+								  		'</div>'+
 									  	'</div>';
 	$("#last-dialreading").before(htmlsnippet);
 	nextDialReadingRow++;
@@ -74,6 +77,9 @@ function addReadingEntryLine(val="") {
 	$("#"+rowID).change(function () {
 		readingDataChanged(this);
 	});
+	$("#"+rowID+"-delete").click(function (event) {
+		deleteDialReading(rowID);
+	}).hide();	
 		
 	if (val) {
 		$("#"+rowID).val(val).change();	
@@ -81,6 +87,18 @@ function addReadingEntryLine(val="") {
 		
 	return rowID;
 }
+
+function deleteDialReading(rowID) {
+		// remove the value from the stats
+	comboReadings = _.omit(comboReadings, [rowID]);	
+		
+	// remove the div
+	$("#"+rowID+"-row").remove();
+	
+	doStats();
+	
+}
+
 
 function readingDataChanged(readingEntryObj) {
 	// Two cases: last entry line changed, or a value was edited
@@ -94,6 +112,7 @@ function readingDataChanged(readingEntryObj) {
 	if (validateReading(reading)) {
 		$(readingEntryObj).removeClass("invalid").addClass("valid");
 		comboReadings[entryID] = reading;
+		$("#"+entryID+"-delete").show();
 		if (!initialLoad) doStats();
 		// Does it look like the last one (nextDialReading - 1)
 		var entryNum = entryID.split("-")[1];
