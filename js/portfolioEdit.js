@@ -18,7 +18,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 function initializePortfolio() {
 	// Reset the portfolio title
-	$("#portfolioName").text(parties["name"]);
+	$("#portfolioName").text(lockName);
 	
 	// Make the name clickable
 	$("#portfolioName").off("click");
@@ -49,8 +49,7 @@ function initializePortfolio() {
 
 function clickeditPortfolio() {
 	// Set the portfolio name form field
-	$("#editPortfolioName").val(parties["name"]);
-	$("#editPortfolio-defaultNumSeats").val(parties["defaultSeats"]);
+	$("#editPortfolioName").val(lockName);
 	
 	
 	// Open the modal
@@ -59,10 +58,9 @@ function clickeditPortfolio() {
 }
 
 function clickSavePortfolio() {
-	parties["name"] = $("#editPortfolioName").val();
-	parties["defaultSeats"] = $("#editPortfolio-defaultNumSeats").val();
+	lockName = $("#editPortfolioName").val();
 	
-	$("#portfolioName").text(parties["name"]);
+	$("#portfolioName").text(lockName);
 	
 	$("#editPortfolioDataModal").modal("close");
 

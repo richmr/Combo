@@ -64,7 +64,9 @@ function doChart(dialID, dialData) {
 
 function resetCharts() {
 	// Just removes all the charts
-	$("#dial-stats").html('Dial Results:<span id ="dial-stats-bottom"></span>');
+	//$("#dial-stats").html('Dial Results:<span id ="dial-stats-bottom"></span>');
+	$("canvas[id^='dialChart-']").remove();
+	chartRefs = {};
 }
 
 function addChartCanvas(dialID) {

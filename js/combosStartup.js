@@ -39,7 +39,7 @@ $(document).ready(function(){
 	//initializeLoadData();
 	//initializeEditProject();
 //initializeEditTableRow();
-	//nitializeResetTable();
+	initializeResetTable();
 });
 
 function newData() {
@@ -47,7 +47,7 @@ function newData() {
 	initializeComboReadings();	
 	comboListInit();
 	//clearHTML();
-	//initializePortfolio();
+	initializePortfolio();
 	//initializePriorityTable();
 	//initializeArchive();
 	//initializedonePeople();

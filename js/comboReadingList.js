@@ -46,13 +46,13 @@ function initializeComboReadings() {
 }
 
 function deleteAllReadings() {
-	var blankReadingsHTML = 'Enter Combos Below:' +
-									  					'<span id="last-dialreading"></span>';
+	//var blankReadingsHTML = 'Enter Combos Below:' +
+	//								  					'<span id="last-dialreading"></span>';
 									  					
-	$("#dial-reading-entries").html(blankReadingsHTML);
-	
+	//$("#dial-reading-entries").html(blankReadingsHTML);
+	$("div[id^='dialreading-']").remove()
 	nextDialReadingRow = 1;
-	
+	initialLoad = true;
 }
 
 function addReadingEntryLine(val="") {

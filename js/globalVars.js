@@ -19,6 +19,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 // Global variable declarations
 
 var comboReadings = {};
+var lockName = "Uncombinator";
 
 function consolidateData() {
 	// Returns a consolidated JSON object with all data

@@ -17,7 +17,8 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
 var keyGlobalVars = [
-	"comboReadings"
+	"comboReadings",
+	"lockName"
 	];
 
 var savedDataFlag = "comboDataSaved";

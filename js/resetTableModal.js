@@ -18,19 +18,19 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 function initializeResetTable() {
 	// Activate the Reset Button
-	$("#resetTable").click(function (event) {
+	$("#resetData").click(function (event) {
 		clickResetTable();
 	});
 	
 	// Activate the confirmation button
-	$("#confirmResetTable").click(function (event) {
+	$("#confirmResetData").click(function (event) {
 		clickConfirmReset();
 	});
 }
 
 function clickResetTable() {
 	// Open the modal
-	$("#resetTableModal").modal("open");
+	$("#resetDataModal").modal("open");
 }
 
 function clickConfirmReset() {
@@ -38,5 +38,6 @@ function clickConfirmReset() {
 	deleteStoredData();
 	loadResetState();
 	newData();
-	$("#resetTableModal").modal("close");
+	resetCharts();
+	$("#resetDataModal").modal("close");
 }

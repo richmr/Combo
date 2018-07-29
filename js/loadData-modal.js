@@ -47,63 +47,23 @@ function clickOnUpdateData(dataJSONString) {
 		var theData = JSON.parse(dataJSONString);
 		dataAnalysisSuccess("dataAnalysis-jsoncheck");		
 		
-		addDataAnalysisCollectionItem("dataAnalysis-parties", "Party data...");
-		if (parties = theData["parties"]) {
-			dataAnalysisSuccess("dataAnalysis-parties");
+		addDataAnalysisCollectionItem("dataAnalysis-lockname", "Lock name...");
+		if (lockName = theData["lockName"]) {
+			dataAnalysisSuccess("dataAnalysis-lockname");
 		} else {
-			dataAnalysisFail("dataAnalysis-parties", "Party data not found");
+			dataAnalysisFail("dataAnalysis-lockname", "Lock name not found!");
 			fullSuccess = false;
 		}
 
-		addDataAnalysisCollectionItem("dataAnalysis-partyRowData", "Table data...");
-		if (partyRowData = theData["partyRowData"]) {
-			dataAnalysisSuccess("dataAnalysis-partyRowData");
+		addDataAnalysisCollectionItem("dataAnalysis-combos", "Saved combo readings...");
+		if (comboReadings = theData["comboReadings"]) {
+			dataAnalysisSuccess("dataAnalysis-combos");
 		} else {
-			dataAnalysisFail("dataAnalysis-partyRowData", "Table data not found");
+			dataAnalysisFail("dataAnalysis-combos", "Saved combo readings not found!");
 			fullSuccess = false;
 		}
 		
-		
-		addDataAnalysisCollectionItem("dataAnalysis-ptable", "Guest seating data...");
-		if (peopleChips = theData["peopleChips"]) {
-			dataAnalysisSuccess("dataAnalysis-ptable");
-		} else {
-			dataAnalysisFail("dataAnalysis-ptable", "Guest seating data not found");
-			fullSuccess = false;
-		}
-		
-		addDataAnalysisCollectionItem("dataAnalysis-archivedPeople", "Guests waiting for seating data...");
-		if (archivedPeople = theData["archivedPeople"]) {
-			dataAnalysisSuccess("dataAnalysis-archivedPeople");
-		} else {
-			dataAnalysisFail("dataAnalysis-archivedPeople", "Guests waiting for seating not found");
-			fullSuccess = false;
-		}
-		/*
-		addDataAnalysisCollectionItem("dataAnalysis-donePeople", "Done project data...");
-		if (donePeople = theData["donePeople"]) {
-			dataAnalysisSuccess("dataAnalysis-donePeople");
-		} else {
-			dataAnalysisFail("dataAnalysis-donePeople", "Done project data not found");
-			fullSuccess = false;
-		}
-		*/
-		addDataAnalysisCollectionItem("dataAnalysis-graveyardPeople", "Guests not coming data...");
-		if (graveyardPeople = theData["graveyardPeople"]) {
-			dataAnalysisSuccess("dataAnalysis-graveyardPeople");
-		} else {
-			dataAnalysisFail("dataAnalysis-graveyardPeople", "Guests not coming data not found");
-			fullSuccess = false;
-		}
-		
-		addDataAnalysisCollectionItem("dataAnalysis-tables", "Guest data...");
-		if (tables = theData["tables"]) {
-			dataAnalysisSuccess("dataAnalysis-tables");
-		} else {
-			dataAnalysisFail("dataAnalysis-tables", "No guest data found");
-			fullSuccess = false;
-		}
-		
+				
 		stopDataProgressBar();
 		
 		if (fullSuccess) {
@@ -113,11 +73,9 @@ function clickOnUpdateData(dataJSONString) {
 			dataAnalysisFail("dataAnalysis-fail");
 		}
 		
-		
-		
 	} catch(err) {
 		// The only catch-able error here is a failed JSON parse
-		errText = "Your Seats data is corrupt -> "+err.name + ": " + err.message;
+		errText = "Your Uncombinator data is corrupt -> "+err.name + ": " + err.message;
 		dataAnalysisFail("dataAnalysis-jsoncheck", errText);		
 		stopDataProgressBar();
 	}
